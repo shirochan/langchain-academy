@@ -8,7 +8,7 @@ LangGraphの可制御性の重要なトピックの1つである並列化につ�
 
 ## Goals
 
-[部分グラフをカバーする](https://langchain-ai.github.io/langgraph/how-tos/subgraph/#simple-example)。
+この章では[sub-graph](https://langchain-ai.github.io/langgraph/how-tos/subgraph/#simple-example)カバーする。
 
 ## State
 
@@ -18,18 +18,18 @@ LangGraphの可制御性の重要なトピックの1つである並列化につ�
 
 おもちゃの例を見てみよう：
 
-* ログを受け取るシステムがある。
-* ログを受け取るシステムがある。
-* この2つのオペレーションを2つの異なるサブグラフで実行したい。
+* ログを受け入れるシステムがあります
+* 異なるエージェントによって 2 つの別々のサブタスクを実行します (ログの要約、障害モードの検出)
+* これらの 2 つの操作を 2 つの異なるサブグラフで実行したいと考えています。
 
-最も重要なことは、グラフがどのように通信を行うかということだ！
+最も重要なことは、グラフがどのように通信を行うかということです。
 
 要するに、通信は**オーバーラップするキー**で行われる： 
 
 * サブグラフは親から`docs`にアクセスできる。
 * 親はサブグラフから`summary/failure_report`にアクセスできる。
 
-！[subgraph.png](https://cdn.prod.website-files.com/65b8cd72835ceeacd4449a53/66dbb1abf89f2d847ee6f1ff_sub-graph1.png)
+![subgraph.png](https://cdn.prod.website-files.com/65b8cd72835ceeacd4449a53/66dbb1abf89f2d847ee6f1ff_sub-graph1.png)
 
 ## Input
 
