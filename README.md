@@ -1,32 +1,32 @@
 ![LangChain Academy](https://cdn.prod.website-files.com/65b8cd72835ceeacd4449a53/66e9eba1020525eea7873f96_LCA-big-green%20(2).svg)
 
-## Introduction
+## はじめに
 
-Welcome to LangChain Academy! 
-This is a growing set of modules focused on foundational concepts within the LangChain ecosystem. 
-Module 0 is basic setup and Modules 1 - 4 focus on LangGraph, progressively adding more advanced themes. 
-In each module folder, you'll see a set of notebooks. A LangChain Academy accompanies each notebook 
-to guide you through the topic. Each module also has a `studio` subdirectory, with a set of relevant 
-graphs that we will explore using the LangGraph API and Studio.
+LangChain Academyへようこそ！ 
+これはLangChainエコシステム内の基礎的概念に焦点を当てたモジュール群です。
+Module 0は基本的なセットアップで、Module 1-4はLangGraphに焦点を当て、段階的により高度なテーマを追加していきます。
+各モジュールフォルダには、ノートブックのセットがあります。各ノートブックにはLangChain Academyが付随しており、
+トピックを案内します。各モジュールには`studio`サブディレクトリもあり、LangGraph APIとStudioを使用して
+探索する関連グラフのセットが含まれています。
 
-## Setup
+## セットアップ
 
-### Python version
+### Pythonバージョン
 
-To get the most out of this course, please ensure you're using Python 3.11 or later. 
-This version is required for optimal compatibility with LangGraph. If you're on an older version, 
-upgrading will ensure everything runs smoothly.
+このコースを最大限に活用するために、Python 3.11以降を使用していることを確認してください。 
+このバージョンはLangGraphとの最適な互換性のために必要です。古いバージョンを使用している場合は、
+アップグレードすることですべてがスムーズに動作します。
 ```
 python3 --version
 ```
 
-### Clone repo
+### リポジトリのクローン
 ```
 git clone https://github.com/langchain-ai/langchain-academy.git
 $ cd langchain-academy
 ```
 
-### Create an environment and install dependencies
+### 環境の作成と依存関係のインストール
 #### Mac/Linux/WSL
 ```
 $ python3 -m venv lc-academy-env
@@ -41,15 +41,15 @@ PS> lc-academy-env\scripts\activate
 PS> pip install -r requirements.txt
 ```
 
-### Running notebooks
-If you don't have Jupyter set up, follow installation instructions [here](https://jupyter.org/install).
+### ノートブックの実行
+Jupyterがセットアップされていない場合は、[こちら](https://jupyter.org/install)のインストール手順に従ってください。
 ```
 $ jupyter notebook
 ```
 
-### Setting up env variables
-Briefly going over how to set up environment variables. You can also 
-use a `.env` file with `python-dotenv` library.
+### 環境変数の設定
+環境変数の設定方法を簡単に説明します。`python-dotenv`ライブラリで
+`.env`ファイルを使用することもできます。
 #### Mac/Linux/WSL
 ```
 $ export API_ENV_VAR="your-api-key-here"
@@ -59,47 +59,47 @@ $ export API_ENV_VAR="your-api-key-here"
 PS> $env:API_ENV_VAR = "your-api-key-here"
 ```
 
-### Set OpenAI API key
-* If you don't have an OpenAI API key, you can sign up [here](https://openai.com/index/openai-api/).
-*  Set `OPENAI_API_KEY` in your environment 
+### OpenAI APIキーの設定
+* OpenAI APIキーをお持ちでない場合は、[こちら](https://openai.com/index/openai-api/)でサインアップできます。
+* 環境で`OPENAI_API_KEY`を設定してください
 
-### Sign up and Set LangSmith API
-* Sign up for LangSmith [here](https://smith.langchain.com/), find out more about LangSmith
-* and how to use it within your workflow [here](https://www.langchain.com/langsmith), and relevant library [docs](https://docs.smith.langchain.com/)!
-*  Set `LANGCHAIN_API_KEY`, `LANGCHAIN_TRACING_V2=true` in your environment 
+### LangSmith APIのサインアップと設定
+* [こちら](https://smith.langchain.com/)でLangSmithにサインアップし、LangSmithについて詳しく知り、
+* ワークフロー内での使用方法は[こちら](https://www.langchain.com/langsmith)、関連ライブラリの[ドキュメント](https://docs.smith.langchain.com/)をご覧ください！
+* 環境で`LANGCHAIN_API_KEY`、`LANGCHAIN_TRACING_V2=true`を設定してください
 
-### Set up Tavily API for web search
+### ウェブ検索用のTavily APIの設定
 
-* Tavily Search API is a search engine optimized for LLMs and RAG, aimed at efficient, 
-quick, and persistent search results. 
-* You can sign up for an API key [here](https://tavily.com/). 
-It's easy to sign up and offers a very generous free tier. Some lessons (in Module 4) will use Tavily. 
+* Tavily Search APIは、LLMとRAG向けに最適化された検索エンジンで、効率的で
+高速かつ持続的な検索結果を目的としています。
+* APIキーは[こちら](https://tavily.com/)でサインアップできます。
+サインアップは簡単で、非常に寛大な無料枠を提供しています。一部のレッスン（Module 4）でTavilyを使用します。
 
-* Set `TAVILY_API_KEY` in your environment.
+* 環境で`TAVILY_API_KEY`を設定してください。
 
-### Set up LangGraph Studio
+### LangGraph Studioの設定
 
-* LangGraph Studio is a custom IDE for viewing and testing agents.
-* Studio can be run locally and opened in your browser on Mac, Windows, and Linux.
-* See documentation [here](https://langchain-ai.github.io/langgraph/concepts/langgraph_studio/#local-development-server) on the local Studio development server and [here](https://langchain-ai.github.io/langgraph/how-tos/local-studio/#run-the-development-server). 
-* Graphs for LangGraph Studio are in the `module-x/studio/` folders.
-* To start the local development server, run the following command in your terminal in the `/studio` directory each module:
+* LangGraph Studioは、エージェントの表示とテスト用のカスタムIDEです。
+* StudioはMac、Windows、Linuxでローカルに実行し、ブラウザで開くことができます。
+* ローカルStudio開発サーバーについては[こちら](https://langchain-ai.github.io/langgraph/concepts/langgraph_studio/#local-development-server)と[こちら](https://langchain-ai.github.io/langgraph/how-tos/local-studio/#run-the-development-server)のドキュメントをご覧ください。
+* LangGraph Studio用のグラフは`module-x/studio/`フォルダにあります。
+* ローカル開発サーバーを開始するには、各モジュールの`/studio`ディレクトリでターミナルで次のコマンドを実行します：
 
 ```
 langgraph dev
 ```
 
-You should see the following output:
+次の出力が表示されます：
 ```
 - 🚀 API: http://127.0.0.1:2024
 - 🎨 Studio UI: https://smith.langchain.com/studio/?baseUrl=http://127.0.0.1:2024
 - 📚 API Docs: http://127.0.0.1:2024/docs
 ```
 
-Open your browser and navigate to the Studio UI: `https://smith.langchain.com/studio/?baseUrl=http://127.0.0.1:2024`.
+ブラウザを開き、Studio UI: `https://smith.langchain.com/studio/?baseUrl=http://127.0.0.1:2024`に移動します。
 
-* To use Studio, you will need to create a .env file with the relevant API keys
-* Run this from the command line to create these files for module 1 to 6, as an example:
+* Studioを使用するには、関連するAPIキーで.envファイルを作成する必要があります
+* 例として、module 1から6用にこれらのファイルを作成するには、コマンドラインから次を実行します：
 ```
 for i in {1..6}; do
   cp module-$i/studio/.env.example module-$i/studio/.env
