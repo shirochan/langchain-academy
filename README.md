@@ -42,10 +42,39 @@ PS> pip install -r requirements.txt
 ```
 
 ### ノートブックの実行
+
+#### 通常のセットアップ
 Jupyterがセットアップされていない場合は、[こちら](https://jupyter.org/install)のインストール手順に従ってください。
 ```
 $ jupyter notebook
 ```
+
+#### Dockerを使用したセットアップ
+Dockerを使用してJupyter Notebook環境を簡単にセットアップできます：
+
+```bash
+# 環境変数設定（必要に応じて）
+cp .env.example .env
+# .envファイルを編集してAPIキーを設定
+
+# Jupyter Notebook起動
+docker-compose up -d
+
+# アクセス
+# http://localhost:8888
+
+# 全サービス起動（Redis + PostgreSQL含む）
+docker-compose --profile full up -d
+
+# 停止
+docker-compose down
+```
+
+Dockerセットアップには以下が含まれます：
+- Python 3.11 + 全依存関係
+- Jupyter Notebook（ポート8888）
+- LangGraph Studio対応（ポート2024）
+- オプションでRedis/PostgreSQLサービス
 
 ### 環境変数の設定
 環境変数の設定方法を簡単に説明します。`python-dotenv`ライブラリで
