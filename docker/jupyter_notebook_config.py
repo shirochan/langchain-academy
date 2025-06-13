@@ -21,7 +21,7 @@ c.FileContentsManager.checkpoints_kwargs = {'root_dir': '/tmp/.ipynb_checkpoints
 c.MultiKernelManager.default_kernel_name = 'python3'
 
 # ログ設定
-c.Application.log_level = 'INFO'
+c.NotebookApp.log_level = 'INFO'
 
 # ファイル変更の監視
 c.NotebookApp.contents_manager_class = 'notebook.services.contents.filemanager.FileContentsManager'
